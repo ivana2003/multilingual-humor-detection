@@ -1,5 +1,3 @@
-"""Normalized dataset loading and paper-statistic validation."""
-
 from __future__ import annotations
 
 from pathlib import Path
