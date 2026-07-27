@@ -1,5 +1,3 @@
-"""Installed command wrappers."""
-
 from __future__ import annotations
 
 import runpy
