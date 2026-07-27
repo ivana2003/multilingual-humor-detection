@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-"""Run cached zero-shot or 10-example few-shot GPT-4o-mini/Qwen classification."""
 
 from __future__ import annotations
 
