@@ -11,7 +11,6 @@ REQUIRED_COLUMNS = ("id", "text", "label")
 
 
 def dataset_config(dataset: str, config_path: Path | None = None) -> dict[str, Any]:
-    """Return one dataset's canonical configuration."""
     path = config_path or project_root() / "configs" / "datasets.yaml"
     config = load_yaml(path)
     try:
@@ -23,7 +22,6 @@ def dataset_config(dataset: str, config_path: Path | None = None) -> dict[str, A
 
 
 def map_spanish_rating(value: object) -> int:
-    """Map paper ratings 1/2/3 to binary labels 0/1/1."""
     try:
         rating = int(value)
     except (TypeError, ValueError) as exc:
@@ -35,7 +33,6 @@ def map_spanish_rating(value: object) -> int:
 
 
 def normalize_binary_label(value: object) -> int:
-    """Normalize common binary representations without inventing labels."""
     if isinstance(value, bool):
         return int(value)
     text = str(value).strip().lower()
@@ -56,7 +53,6 @@ def validate_normalized_frame(
     expected_size: int | None = None,
     expected_humorous_fraction: float | None = None,
 ) -> dict[str, Any]:
-    """Validate schema, identifiers, labels, and optional paper statistics."""
     missing = [column for column in REQUIRED_COLUMNS if column not in frame.columns]
     if missing:
         raise ValueError(f"Missing normalized columns: {missing}")
@@ -92,7 +88,6 @@ def validate_normalized_frame(
 
 
 def load_normalized_dataset(dataset: str, root: Path | None = None) -> pd.DataFrame:
-    """Load and validate data/processed/<dataset>.csv against paper statistics."""
     base = root or project_root()
     path = base / "data" / "processed" / f"{dataset}.csv"
     if not path.exists():
