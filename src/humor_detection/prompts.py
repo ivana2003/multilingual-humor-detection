@@ -30,14 +30,12 @@ Classification:"""
 
 @dataclass(frozen=True)
 class FewShotExample:
-    """One training-only example included in a few-shot prompt."""
 
     text: str
     label: int
 
 
 def format_examples(examples: Sequence[FewShotExample]) -> str:
-    """Serialize examples with the same Text/Classification fields as the query."""
     blocks: list[str] = []
     for example in examples:
         if example.label not in (0, 1):
@@ -47,10 +45,8 @@ def format_examples(examples: Sequence[FewShotExample]) -> str:
 
 
 def build_zero_shot_prompt(text: str) -> str:
-    """Build the exact zero-shot template from the paper."""
     return ZERO_SHOT_TEMPLATE.format(text=text)
 
 
 def build_few_shot_prompt(text: str, examples: Sequence[FewShotExample]) -> str:
-    """Build the paper's few-shot template using supplied training examples."""
     return FEW_SHOT_TEMPLATE.format(text=text, examples=format_examples(examples))
