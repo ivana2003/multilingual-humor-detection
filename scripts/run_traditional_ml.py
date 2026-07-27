@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-"""Run the paper-aligned TF-IDF Logistic Regression or linear SVM experiment."""
 
 from __future__ import annotations
 
