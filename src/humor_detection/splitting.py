@@ -12,7 +12,6 @@ SCHEMA_VERSION = 1
 
 
 def make_split_ids(frame: pd.DataFrame, seed: int = 42) -> dict[str, list[str]]:
-    """Create deterministic stratified train/validation/test identifier lists."""
     if not {"id", "label"}.issubset(frame.columns):
         raise ValueError("Splitting requires id and label columns")
     ids = frame["id"].astype(str)
@@ -45,7 +44,6 @@ def make_split_ids(frame: pd.DataFrame, seed: int = 42) -> dict[str, list[str]]:
 
 
 def validate_split_ids(splits: dict[str, list[str]], expected_ids: set[str] | None = None) -> None:
-    """Verify uniqueness, disjointness, and optional full coverage."""
     expected_names = {"train", "validation", "test"}
     if set(splits) != expected_names:
         raise ValueError(f"Split keys must be {sorted(expected_names)}")
@@ -69,7 +67,6 @@ def validate_split_ids(splits: dict[str, list[str]], expected_ids: set[str] | No
 
 
 def split_frames(frame: pd.DataFrame, splits: dict[str, list[str]]) -> dict[str, pd.DataFrame]:
-    """Materialize split dataframes in manifest order."""
     validate_split_ids(splits, expected_ids=set(frame["id"].astype(str)))
     indexed = frame.assign(id=frame["id"].astype(str)).set_index("id", drop=False)
     return {name: indexed.loc[ids].reset_index(drop=True) for name, ids in splits.items()}
@@ -111,6 +108,5 @@ def build_manifest(
 
 
 def write_manifest(path: Path, manifest: dict[str, Any]) -> None:
-    """Validate and atomically write a split manifest."""
     validate_split_ids(manifest["splits"])
     atomic_write_json(path, manifest)
