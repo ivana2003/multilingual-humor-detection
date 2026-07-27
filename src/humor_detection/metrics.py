@@ -1,5 +1,3 @@
-"""Evaluation metrics used by all model families."""
-
 from __future__ import annotations
 
 from collections.abc import Sequence
