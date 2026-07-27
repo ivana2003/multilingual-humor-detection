@@ -1,5 +1,3 @@
-"""Prompt templates transcribed from Appendix A.4 of the paper."""
-
 from __future__ import annotations
 
 from collections.abc import Sequence
