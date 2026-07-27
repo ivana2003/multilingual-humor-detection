@@ -1,5 +1,3 @@
-"""Deterministic, stratified 70/10/20 splitting with leakage checks."""
-
 from __future__ import annotations
 
 from pathlib import Path
