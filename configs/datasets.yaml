@@ -1,4 +1,3 @@
-seed: 42
 split:
   train: 0.70
   validation: 0.10
