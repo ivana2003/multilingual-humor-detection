@@ -7,7 +7,6 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 
 
 def binary_classification_metrics(y_true: Sequence[int], y_pred: Sequence[int]) -> dict[str, Any]:
-    """Compute macro-F1 and supporting binary classification diagnostics."""
     if len(y_true) != len(y_pred):
         raise ValueError("y_true and y_pred must have equal lengths")
     if not y_true:
