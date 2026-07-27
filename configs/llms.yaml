@@ -1,0 +1,27 @@
+seed: 42
+metric: f1_macro
+few_shot:
+  examples_per_class: 5
+  source_split: train
+parser:
+  valid_outputs: ["0", "1"]
+  invalid_default: 0
+models:
+  openai:
+    paper_name: GPT-4o-mini
+    model_id: gpt-4o-mini
+    temperature: 0.0
+    max_output_tokens: 10
+    requires_explicit_paid_authorization: true
+  qwen:
+    paper_name: Qwen 2.5 7B Instruct
+    model_id: Qwen/Qwen2.5-7B-Instruct
+    decoding: greedy
+    do_sample: false
+    reported_temperature: 0.1
+    max_new_tokens: 10
+    dtype: float16
+    hardware: one_gpu
+prompts:
+  implementation: src/humor_detection/prompts.py
+  source: paper_appendix_A.4

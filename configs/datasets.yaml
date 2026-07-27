@@ -1,0 +1,59 @@
+seed: 42
+split:
+  train: 0.70
+  validation: 0.10
+  test: 0.20
+schema:
+  id: id
+  text: text
+  label: label
+
+datasets:
+  en:
+    language: English
+    paper_name: CoMB
+    expected_size: 45488
+    expected_humorous_fraction: 0.622
+    source_url: https://github.com/Humor-Research/Humor-detection
+    citation: "Baranov, Kniazhevsky, and Braslavski (EMNLP 2023), You Told Me That Joke Twice"
+    license_status: "Unconfirmed for the aggregated raw dataset; verify every constituent source before redistribution."
+    label_mapping: binary_as_provided
+  es:
+    language: Spanish
+    paper_name: Martinez Spanish jokes dataset
+    expected_size: 2419
+    expected_humorous_fraction: 0.631
+    source_url: https://github.com/liopic/chistes-nlp
+    citation: "Martinez (2021), chistes-nlp teaching dataset"
+    license_status: "No dataset license confirmed in the source material."
+    label_mapping:
+      1: 0
+      2: 1
+      3: 1
+  pt:
+    language: Portuguese
+    paper_name: Goncalo Oliveira et al. combined Portuguese humor corpus
+    expected_size: 2800
+    expected_humorous_fraction: 0.500
+    source_url: https://github.com/NLP-CISUC/Recognizing-Humor-in-Portuguese
+    citation: "Goncalo Oliveira, Clemencio, and Alves (LREC 2020)"
+    license_status: "No dataset license confirmed in the source material."
+    label_mapping: binary_as_provided
+  zh:
+    language: Chinese
+    paper_name: HumorWB/Weibo
+    expected_size: 5291
+    expected_humorous_fraction: 0.380
+    source_url: https://github.com/zzyjerry/HumorWB
+    citation: "Zeng et al. (LREC-COLING 2024), HumorWB"
+    license_status: "No dataset license confirmed in the source material."
+    label_mapping: binary_as_provided
+  hi_en:
+    language: Hindi-English
+    paper_name: Khandelwal et al. code-mixed humor corpus
+    expected_size: 2949
+    expected_humorous_fraction: 0.596
+    source_url: https://github.com/Ankh2295/humor-detection-corpus
+    citation: "Khandelwal et al. (LREC 2018)"
+    license_status: "The repository advertises GPL-3.0, but the scope over the dataset must be confirmed before redistribution."
+    label_mapping: binary_as_provided

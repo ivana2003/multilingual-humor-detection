@@ -1,0 +1,21 @@
+seed: 42
+metric: f1_macro
+features:
+  analyzer: word
+  ngram_range: [1, 2]
+  min_df: 2
+  lowercase: true
+cross_validation:
+  type: StratifiedKFold
+  folds: 5
+  shuffle: true
+  c_values: [0.1, 1.0, 10.0]
+models:
+  lr:
+    estimator: LogisticRegression
+    max_iter: 2000
+    solver: liblinear
+  svm:
+    estimator: LinearSVC
+final_fit: train_plus_validation
+final_evaluation: held_out_test

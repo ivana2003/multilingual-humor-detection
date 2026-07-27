@@ -1,0 +1,40 @@
+Model,Language,Reported,ArchiveSource,ArchiveMetric,ArchiveValue,Status,Notes
+SVM,EN,0.802,results/traditional_ml_comb.csv; hpc_pull/.../comb/results/traditional_ml_comb.csv,test_f1_macro,0.801762,TRACEABLE_TEST_WITH_PROTOCOL_CONCERN,"CoMB script caps CV folds at 100 and test at 500, so it is not evidence of the full paper protocol."
+SVM,HI-EN,0.582,hpc_pull/humor_temp/other_lang/results/traditional_ml_new_langs_COMPLETE.csv,test_f1_macro,0.581530,TRACEABLE_TEST,Rounds to the reported cell; legacy configuration contains extra feature variants.
+SVM,PT,0.843,hpc_pull/humor_temp/other_lang/results/traditional_ml_new_langs_COMPLETE.csv,test_f1_macro,0.844630 / 0.849931,UNRESOLVED,No archive row equals the paper value under ordinary three-decimal rounding.
+SVM,ZH,0.477,hpc_pull/humor_temp/other_lang/results/traditional_ml_new_langs_COMPLETE.csv,test_f1_macro,0.478437,UNRESOLVED,"The nearby 0.477269 row is labeled LR, suggesting a possible model-label swap that cannot be assumed."
+LR,EN,0.810,results/traditional_ml_comb.csv; hpc_pull/.../comb/results/traditional_ml_comb.csv,test_f1_macro,0.810133,TRACEABLE_TEST_WITH_PROTOCOL_CONCERN,"Rounds to the paper value, but the archived script evaluates only a capped test subset."
+LR,ES,0.661,hpc_pull/humor_temp/results/traditional_ml_cv_and_test.csv,test_f1_macro,0.661138,TRACEABLE_TEST,Rounds to the reported cell.
+LR,HI-EN,0.524,hpc_pull/humor_temp/other_lang/results/traditional_ml_new_langs_COMPLETE.csv,test_f1_macro,0.532874 / 0.559543 / 0.580668,UNRESOLVED,No archived held-out result supports 0.524.
+LR,PT,0.825,hpc_pull/humor_temp/other_lang/results/traditional_ml_new_langs_COMPLETE.csv,test_f1_macro,0.824819,TRACEABLE_TEST,Rounds to the reported cell.
+LR,ZH,0.478,hpc_pull/humor_temp/other_lang/results/traditional_ml_new_langs_COMPLETE.csv,test_f1_macro,0.477269,UNRESOLVED,"Archive LR rounds to 0.477, while its SVM row rounds to 0.478; a possible swap is not resolved."
+XLM-R-base,EN,0.958,hpc_pull/humor_temp/comb/results/transformers_comb.csv; mirrored under humor_detection_results,test_f1_macro,0.957725,TRACEABLE_TEST,"Rounds to the reported cell, assuming the missing CoMB split/data provenance."
+XLM-R-base,ES,0.670,hpc_pull/humor_temp/results/transformers_cv_and_test.csv,test_f1_macro,0.670319,TRACEABLE_TEST,Rounds to the reported cell.
+XLM-R-base,HI-EN,0.617,hpc_pull/humor_temp/other_lang/results/transformers_multilingual_PROPER.csv,test_f1_macro,0.617314,TRACEABLE_TEST,Rounds to the reported cell.
+XLM-R-base,PT,0.995,hpc_pull/humor_temp/other_lang/results/transformers_multilingual_PROPER.csv,test_f1_macro,0.994643,TRACEABLE_TEST,Rounds to the reported cell.
+XLM-R-base,ZH,0.807,hpc_pull/humor_temp/other_lang/results/transformers_multilingual_PROPER.csv,test_f1_macro,0.807101,TRACEABLE_TEST,Rounds to the reported cell.
+DeBERTa-v3-base,EN,0.966,hpc_pull/humor_temp/comb/results/transformers_comb.csv; mirrored under humor_detection_results,cv_mean_f1_macro,0.966175,CV_ONLY_MATCH,"The held-out test value in the same file is 0.959955; the paper cell matches the CV mean, not test."
+BETO,ES,0.649,hpc_pull/humor_temp/other_lang/results/transformers_lang_specific.csv,test_f1_macro,0.684549,UNRESOLVED,No held-out result supporting 0.649 was found.
+MuRIL,HI-EN,0.584,hpc_pull/humor_temp/other_lang/results/transformers_lang_specific.csv,test_f1_macro,0.583462,APPROXIMATE_TEST_MISMATCH,"The archive value rounds to 0.583, not 0.584."
+BERTimbau,PT,0.992,hpc_pull/humor_temp/other_lang/results/transformers_lang_specific.csv,test_f1_macro,0.991071,APPROXIMATE_TEST_MISMATCH,"The archive value rounds to 0.991, not 0.992."
+BERT-Chinese,ZH,0.793,hpc_pull/humor_temp/other_lang/results/transformers_multilingual_PROPER.csv,test_f1_macro,0.793326,TRACEABLE_TEST,Rounds to the reported cell.
+GPT-4o-mini zero-shot,EN,0.864,hpc_pull/.../comb/results/llm_gpt4o_comb.csv,test_f1_macro,0.864352,TRACEABLE_TEST,Rounds to the reported cell; source data/split provenance is incomplete.
+GPT-4o-mini zero-shot,ES,0.402,results/llm_prompt_variants_5langs.csv,"cv_mean_f1_macro, variant1",0.402370,CV_ONLY_MATCH,"This is a prompt-variant CV mean, not held-out test evidence for Appendix A.4 prompt."
+GPT-4o-mini zero-shot,HI-EN,0.578,hpc_pull/humor_temp/other_lang/results/llm_gpt4o_new_langs.csv and prompt variants,mixed,0.583843 test; nearby CV values,UNRESOLVED,No exact paper-consistent held-out source was found.
+GPT-4o-mini zero-shot,PT,0.826,hpc_pull/humor_temp/other_lang/results/llm_gpt4o_new_langs.csv,test_f1_macro,0.825491,TRACEABLE_TEST,Rounds to the reported cell.
+GPT-4o-mini zero-shot,ZH,0.833,hpc_pull/humor_temp/other_lang/results/llm_gpt4o_new_langs.csv,test_f1_macro,0.832690,TRACEABLE_TEST,Rounds to the reported cell.
+GPT-4o-mini few-shot,EN,0.830,hpc_pull/.../comb/results/llm_gpt4o_comb.csv,test_f1_macro,0.830303,TRACEABLE_TEST,Rounds to the reported cell; source data/split provenance is incomplete.
+GPT-4o-mini few-shot,ES,0.436,results/llm_prompt_variants_5langs.csv,"cv_mean_f1_macro, variant1",0.435884,CV_ONLY_MATCH,"This is a prompt-variant CV mean, not held-out test evidence for Appendix A.4 prompt."
+GPT-4o-mini few-shot,HI-EN,0.581,hpc_pull/humor_temp/other_lang/results/llm_gpt4o_new_langs.csv and prompt variants,mixed,0.570276 test; nearby CV values,UNRESOLVED,No exact paper-consistent held-out source was found.
+GPT-4o-mini few-shot,PT,0.813,hpc_pull/humor_temp/other_lang/results/llm_gpt4o_new_langs.csv,test_f1_macro,0.813084,TRACEABLE_TEST,Rounds to the reported cell.
+GPT-4o-mini few-shot,ZH,0.839,hpc_pull/humor_temp/other_lang/results/llm_gpt4o_new_langs.csv,test_f1_macro,0.838578,TRACEABLE_TEST,Rounds to the reported cell.
+Qwen zero-shot,EN,0.770,results/llm_all_comb.csv; hpc_pull/.../comb/results/llm_all_comb.csv,test_f1_macro / cv_mean,0.699956 test; 0.767123 nearby CV,UNRESOLVED,No archive metric supports 0.770 as held-out test.
+Qwen zero-shot,ES,0.541,hpc_pull/humor_temp/results/llm_qwen_llama_cv_and_test.csv,test_f1_macro,0.540718,TRACEABLE_TEST,Rounds to the reported cell.
+Qwen zero-shot,HI-EN,0.544,hpc_pull/humor_temp/other_lang/results/llm_all_models_new_langs.csv,test_f1_macro,0.544894,APPROXIMATE_TEST_MISMATCH,"Ordinary rounding gives 0.545, not 0.544."
+Qwen zero-shot,PT,0.809,hpc_pull/humor_temp/other_lang/results/llm_all_models_new_langs.csv,test_f1_macro,0.808928,TRACEABLE_TEST,Rounds to the reported cell.
+Qwen zero-shot,ZH,0.776,hpc_pull/humor_temp/other_lang/results/llm_all_models_new_langs.csv,test_f1_macro,0.754879,UNRESOLVED,No held-out value supporting 0.776 was found.
+Qwen few-shot,EN,0.716,results/llm_all_comb.csv; hpc_pull/.../comb/results/llm_all_comb.csv,test_f1_macro,0.716000,TRACEABLE_TEST,Matches the reported cell; source data/split provenance is incomplete.
+Qwen few-shot,ES,0.476,hpc_pull/humor_temp/results/llm_qwen_llama_cv_and_test.csv,test_f1_macro,0.475667,TRACEABLE_TEST,Rounds to the reported cell.
+Qwen few-shot,HI-EN,0.482,hpc_pull/humor_temp/other_lang/results/llm_all_models_new_langs.csv,test_f1_macro,0.482170,TRACEABLE_TEST,Rounds to the reported cell.
+Qwen few-shot,PT,0.761,hpc_pull/humor_temp/other_lang/results/llm_all_models_new_langs.csv,test_f1_macro,0.760544,TRACEABLE_TEST,Rounds to the reported cell.
+Qwen few-shot,ZH,0.811,hpc_pull/humor_temp/other_lang/results/llm_all_models_new_langs.csv,test_f1_macro,0.811433,TRACEABLE_TEST,Rounds to the reported cell.
