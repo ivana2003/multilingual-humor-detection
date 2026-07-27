@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-"""Aggregate only held-out test macro-F1 from completed reproduced runs."""
 
 from __future__ import annotations
 
