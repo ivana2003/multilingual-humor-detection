@@ -11,12 +11,10 @@ import yaml
 
 
 def project_root() -> Path:
-    """Return the repository root from the installed source tree."""
     return Path(__file__).resolve().parents[2]
 
 
 def load_yaml(path: Path) -> dict[str, Any]:
-    """Load a YAML mapping and reject other top-level types."""
     with path.open("r", encoding="utf-8") as handle:
         value = yaml.safe_load(handle)
     if not isinstance(value, dict):
@@ -25,7 +23,6 @@ def load_yaml(path: Path) -> dict[str, Any]:
 
 
 def sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> str:
-    """Compute a file SHA-256 without loading the full file into memory."""
     digest = hashlib.sha256()
     with path.open("rb") as handle:
         for chunk in iter(lambda: handle.read(chunk_size), b""):
@@ -34,7 +31,6 @@ def sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> str:
 
 
 def sha256_strings(values: Iterable[str]) -> str:
-    """Hash an ordered sequence of strings with unambiguous separators."""
     digest = hashlib.sha256()
     for value in values:
         encoded = value.encode("utf-8")
@@ -44,7 +40,6 @@ def sha256_strings(values: Iterable[str]) -> str:
 
 
 def atomic_write_json(path: Path, value: Any) -> None:
-    """Write JSON atomically in the destination directory."""
     path.parent.mkdir(parents=True, exist_ok=True)
     fd, temporary = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
     try:
@@ -58,7 +53,6 @@ def atomic_write_json(path: Path, value: Any) -> None:
 
 
 def append_jsonl(path: Path, record: dict[str, Any]) -> None:
-    """Append one flushed JSON record for interruption-safe caching."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("a", encoding="utf-8") as handle:
         handle.write(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n")
@@ -67,7 +61,6 @@ def append_jsonl(path: Path, record: dict[str, Any]) -> None:
 
 
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
-    """Read JSONL and report the precise invalid line."""
     if not path.exists():
         return []
     records: list[dict[str, Any]] = []
