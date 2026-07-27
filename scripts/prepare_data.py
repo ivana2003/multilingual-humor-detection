@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-"""Normalize a downloaded dataset and generate its deterministic split manifest."""
 
 from __future__ import annotations
 
