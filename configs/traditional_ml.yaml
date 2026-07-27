@@ -1,4 +1,3 @@
-seed: 42
 metric: f1_macro
 features:
   analyzer: word
@@ -17,5 +16,4 @@ models:
     solver: liblinear
   svm:
     estimator: LinearSVC
-final_fit: train_plus_validation
-final_evaluation: held_out_test
+
