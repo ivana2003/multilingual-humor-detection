@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-"""Run static repository checks that do not download data or models."""
 
 from __future__ import annotations
 
