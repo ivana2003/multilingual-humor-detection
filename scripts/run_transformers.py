@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-"""Fine-tune a paper-reported encoder and evaluate the held-out test split."""
-
 from __future__ import annotations
 
 import argparse
